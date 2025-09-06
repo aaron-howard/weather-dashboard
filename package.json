@@ -22,12 +22,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/weather-dashboard.git"
+    "url": "https://github.com/aaron-howard/weather-dashboard.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/weather-dashboard/issues"
+    "url": "https://github.com/aaron-howard/weather-dashboard/issues"
   },
-  "homepage": "https://github.com/yourusername/weather-dashboard#readme",
+  "homepage": "https://github.com/aaron-howard/weather-dashboard#readme",
   "devDependencies": {
     "live-server": "^1.2.2",
     "serve": "^14.2.1"

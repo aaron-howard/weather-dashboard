@@ -11,7 +11,7 @@ A beautiful, responsive weather dashboard built with JavaScript, Chart.js, and m
 
 ## ✨ Live Demo
 
-[View Live Demo](https://yourusername.github.io/weather-dashboard) | [Report Bug](https://github.com/yourusername/weather-dashboard/issues) | [Request Feature](https://github.com/yourusername/weather-dashboard/issues)
+[View Live Demo](https://aaron-howard.github.io/weather-dashboard) | [Report Bug](https://github.com/aaron-howard/weather-dashboard/issues) | [Request Feature](https://github.com/aaron-howard/weather-dashboard/issues)
 
 ## Features
 
@@ -187,7 +187,7 @@ Open browser developer tools (F12) and check the console for detailed error mess
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/weather-dashboard.git
+   git clone https://github.com/aaron-howard/weather-dashboard.git
    cd weather-dashboard
    ```
 
@@ -258,9 +258,9 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ### Getting Help
 - 📖 Check the [Documentation](env-setup.md)
-- 🐛 [Report a Bug](https://github.com/yourusername/weather-dashboard/issues)
-- 💡 [Request a Feature](https://github.com/yourusername/weather-dashboard/issues)
-- 💬 [Start a Discussion](https://github.com/yourusername/weather-dashboard/discussions)
+- 🐛 [Report a Bug](https://github.com/aaron-howard/weather-dashboard/issues)
+- 💡 [Request a Feature](https://github.com/aaron-howard/weather-dashboard/issues)
+- 💬 [Start a Discussion](https://github.com/aaron-howard/weather-dashboard/discussions)
 
 ## 📄 License
 
@@ -275,15 +275,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/weather-dashboard&type=Date)](https://star-history.com/#yourusername/weather-dashboard&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=aaron-howard/weather-dashboard&type=Date)](https://star-history.com/#aaron-howard/weather-dashboard&Date)
 
 ---
 
 <div align="center">
   <p>Made with ❤️ by Aaron</p>
   <p>
-    <a href="https://github.com/yourusername/weather-dashboard">GitHub</a> •
-    <a href="https://yourusername.github.io/weather-dashboard">Live Demo</a> •
-    <a href="https://github.com/yourusername/weather-dashboard/issues">Issues</a>
+    <a href="https://github.com/aaron-howard/weather-dashboard">GitHub</a> •
+    <a href="https://aaron-howard.github.io/weather-dashboard">Live Demo</a> •
+     <a href="https://github.com/aaron-howard/weather-dashboard/issues">Issues</a>
   </p>
 </div>

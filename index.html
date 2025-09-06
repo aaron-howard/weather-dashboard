@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="config.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <i class="fas fa-cloud-sun"></i>
+                    Weather Dashboard
+                </h1>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="locationInput" placeholder="Enter city name..." />
+                        <button id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button id="locationBtn" class="location-btn" title="Use current location">
+                            <i class="fas fa-location-arrow"></i>
+                        </button>
+                    </div>
+                    <div class="temp-toggle">
+                        <button id="tempToggle" class="temp-toggle-btn" title="Toggle temperature unit">
+                            <span id="tempUnit">°C</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Current Weather Section -->
+            <section class="current-weather" id="currentWeather">
+                <div class="weather-card main-card">
+                    <div class="weather-info">
+                        <div class="location-info">
+                            <h2 id="currentLocation">Loading...</h2>
+                            <p id="currentDate"></p>
+                        </div>
+                        <div class="temperature-section">
+                        <div class="main-temp">
+                            <span id="currentTemp">--</span>
+                            <span class="temp-unit" id="currentTempUnit">°C</span>
+                        </div>
+                            <div class="weather-description">
+                                <i id="weatherIcon" class="fas fa-sun"></i>
+                                <span id="weatherDesc">Clear Sky</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="fas fa-eye"></i>
+                            <span class="detail-label">Visibility</span>
+                            <span id="visibility" class="detail-value">-- km</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-tint"></i>
+                            <span class="detail-label">Humidity</span>
+                            <span id="humidity" class="detail-value">--%</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-wind"></i>
+                            <span class="detail-label">Wind Speed</span>
+                            <span id="windSpeed" class="detail-value">-- km/h</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <span class="detail-label">Feels Like</span>
+                            <span id="feelsLike" class="detail-value">--°C</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                            <span class="detail-label">Pressure</span>
+                            <span id="pressure" class="detail-value">-- hPa</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-sun"></i>
+                            <span class="detail-label">UV Index</span>
+                            <span id="uvIndex" class="detail-value">--</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <h3>Temperature Forecast</h3>
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Humidity & Pressure</h3>
+                    <canvas id="humidityChart"></canvas>
+                </div>
+            </section>
+
+            <!-- 7-Day Forecast -->
+            <section class="forecast-section">
+                <h3>7-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer">
+                    <!-- Forecast cards will be dynamically generated -->
+                </div>
+            </section>
+
+            <!-- Hourly Forecast -->
+            <section class="hourly-section">
+                <h3>24-Hour Forecast</h3>
+                <div class="hourly-container" id="hourlyContainer">
+                    <!-- Hourly cards will be dynamically generated -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">
+                <i class="fas fa-cloud-sun"></i>
+                <p>Loading weather data...</p>
+            </div>
+        </div>
+
+        <!-- Error Modal -->
+        <div class="error-modal" id="errorModal">
+            <div class="error-content">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Error</h3>
+                <p id="errorMessage">Something went wrong. Please try again.</p>
+                <button id="closeError" class="close-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

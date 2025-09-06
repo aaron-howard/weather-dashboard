@@ -1,0 +1,38 @@
+{
+  "name": "weather-dashboard",
+  "version": "1.0.0",
+  "description": "A beautiful, responsive weather dashboard built with JavaScript, Chart.js, and modern CSS3",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "npx live-server --port=3000 --open=/index.html"
+  },
+  "keywords": [
+    "weather",
+    "dashboard",
+    "javascript",
+    "chartjs",
+    "css3",
+    "responsive",
+    "openweathermap",
+    "api"
+  ],
+  "author": "Aaron",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/weather-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/weather-dashboard/issues"
+  },
+  "homepage": "https://github.com/yourusername/weather-dashboard#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

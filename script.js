@@ -1,8 +1,8 @@
 // Weather Dashboard JavaScript
 class WeatherDashboard {
     constructor() {
-        // Load configuration
-        this.config = window.CONFIG || CONFIG;
+        // Load configuration with fallback
+        this.config = window.CONFIG || this.getDefaultConfig();
         
         // Validate API keys
         this.validateApiKeys();
@@ -27,12 +27,49 @@ class WeatherDashboard {
         this.init();
     }
 
+    getDefaultConfig() {
+        return {
+            OPENWEATHER_API_KEY: 'YOUR_OPENWEATHER_API_KEY',
+            WEATHERAPI_KEY: 'YOUR_WEATHERAPI_KEY',
+            DEFAULT_LOCATION: {
+                lat: 32.7767,
+                lon: -96.7970,
+                name: 'Dallas, TX'
+            },
+            CHART_CONFIG: {
+                temperature: {
+                    color: '#e74c3c',
+                    backgroundColor: 'rgba(231, 76, 60, 0.1)'
+                },
+                humidity: {
+                    color: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.8)'
+                },
+                pressure: {
+                    color: '#9b59b6',
+                    backgroundColor: 'rgba(155, 89, 182, 0.8)'
+                }
+            },
+            UPDATE_INTERVALS: {
+                weather: 300000,
+                time: 60000,
+                charts: 600000
+            },
+            API_TIMEOUT: 10000,
+            API_RETRY_ATTEMPTS: 3,
+            DEFAULT_THEME: 'light',
+            ANIMATION_ENABLED: true,
+            CHART_ANIMATION_DURATION: 1000
+        };
+    }
+
     validateApiKeys() {
         const openWeatherKey = this.config.OPENWEATHER_API_KEY;
         
         if (!openWeatherKey || openWeatherKey === 'YOUR_OPENWEATHER_API_KEY') {
             this.showError(
-                'API Key Required: Please configure your OpenWeatherMap API key in config.js. ' +
+                'API Key Required: This demo requires an OpenWeatherMap API key to function. ' +
+                'For the live demo, please visit the GitHub repository to set up your own instance. ' +
                 'Get your free API key at https://openweathermap.org/api'
             );
             return false;

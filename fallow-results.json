@@ -1,0 +1,806 @@
+{
+  "kind": "combined",
+  "schema_version": 11,
+  "version": "3.17.0",
+  "elapsed_ms": 23,
+  "check": {
+    "schema_version": 9,
+    "version": "3.17.0",
+    "elapsed_ms": 17,
+    "total_issues": 5,
+    "entry_points": {
+      "total": 8,
+      "sources": {
+        "plugin": 8
+      }
+    },
+    "summary": {
+      "total_issues": 5,
+      "unused_files": 0,
+      "unused_exports": 0,
+      "unused_types": 0,
+      "private_type_leaks": 0,
+      "unused_dependencies": 1,
+      "unused_enum_members": 0,
+      "unused_class_members": 0,
+      "unused_store_members": 0,
+      "unprovided_injects": 0,
+      "unrendered_components": 0,
+      "unused_component_props": 0,
+      "unused_component_emits": 0,
+      "unused_component_inputs": 0,
+      "unused_component_outputs": 0,
+      "unused_svelte_events": 0,
+      "unused_server_actions": 0,
+      "unused_load_data_keys": 0,
+      "unresolved_imports": 0,
+      "unlisted_dependencies": 1,
+      "duplicate_exports": 0,
+      "type_only_dependencies": 0,
+      "test_only_dependencies": 2,
+      "dev_dependencies_in_production": 1,
+      "circular_dependencies": 0,
+      "re_export_cycles": 0,
+      "boundary_violations": 0,
+      "boundary_coverage_violations": 0,
+      "boundary_call_violations": 0,
+      "policy_violations": 0,
+      "stale_suppressions": 0,
+      "unused_catalog_entries": 0,
+      "empty_catalog_groups": 0,
+      "unresolved_catalog_references": 0,
+      "unused_dependency_overrides": 0,
+      "misconfigured_dependency_overrides": 0,
+      "invalid_client_exports": 0,
+      "mixed_client_server_barrels": 0,
+      "misplaced_directives": 0,
+      "route_collisions": 0,
+      "dynamic_segment_name_conflicts": 0
+    },
+    "unused_files": [],
+    "unused_exports": [],
+    "unused_types": [],
+    "private_type_leaks": [],
+    "unused_dependencies": [],
+    "unused_dev_dependencies": [
+      {
+        "package_name": "eslint-config-next",
+        "location": "devDependencies",
+        "path": "package.json",
+        "line": 23,
+        "actions": [
+          {
+            "type": "remove-dependency",
+            "auto_fixable": true,
+            "description": "Remove from devDependencies in package.json"
+          },
+          {
+            "type": "add-to-config",
+            "auto_fixable": false,
+            "description": "Add \"eslint-config-next\" to ignoreDependencies in fallow config",
+            "config_key": "ignoreDependencies",
+            "value": "eslint-config-next",
+            "value_schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json#/properties/ignoreDependencies/items"
+          }
+        ]
+      }
+    ],
+    "unused_optional_dependencies": [],
+    "unused_enum_members": [],
+    "unused_class_members": [],
+    "unresolved_imports": [],
+    "unlisted_dependencies": [
+      {
+        "package_name": "postcss-load-config",
+        "imported_from": [
+          {
+            "path": "postcss.config.mjs",
+            "line": 1,
+            "col": 0
+          }
+        ],
+        "actions": [
+          {
+            "type": "install-dependency",
+            "auto_fixable": false,
+            "description": "Add this package to dependencies in package.json",
+            "note": "Verify this package should be a direct dependency before adding"
+          },
+          {
+            "type": "add-to-config",
+            "auto_fixable": false,
+            "description": "Add \"postcss-load-config\" to ignoreDependencies in fallow config",
+            "config_key": "ignoreDependencies",
+            "value": "postcss-load-config",
+            "value_schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json#/properties/ignoreDependencies/items"
+          }
+        ]
+      }
+    ],
+    "duplicate_exports": [],
+    "type_only_dependencies": [],
+    "test_only_dependencies": [
+      {
+        "package_name": "@tailwindcss/container-queries",
+        "path": "package.json",
+        "line": 12,
+        "actions": [
+          {
+            "type": "move-to-dev",
+            "auto_fixable": false,
+            "description": "Move to devDependencies (only test files import this)",
+            "note": "Only test files import this package so it does not need to be a production dependency"
+          },
+          {
+            "type": "add-to-config",
+            "auto_fixable": false,
+            "description": "Add \"@tailwindcss/container-queries\" to ignoreDependencies in fallow config",
+            "config_key": "ignoreDependencies",
+            "value": "@tailwindcss/container-queries",
+            "value_schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json#/properties/ignoreDependencies/items"
+          }
+        ]
+      },
+      {
+        "package_name": "@tailwindcss/forms",
+        "path": "package.json",
+        "line": 13,
+        "actions": [
+          {
+            "type": "move-to-dev",
+            "auto_fixable": false,
+            "description": "Move to devDependencies (only test files import this)",
+            "note": "Only test files import this package so it does not need to be a production dependency"
+          },
+          {
+            "type": "add-to-config",
+            "auto_fixable": false,
+            "description": "Add \"@tailwindcss/forms\" to ignoreDependencies in fallow config",
+            "config_key": "ignoreDependencies",
+            "value": "@tailwindcss/forms",
+            "value_schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json#/properties/ignoreDependencies/items"
+          }
+        ]
+      }
+    ],
+    "dev_dependencies_in_production": [
+      {
+        "package_name": "tailwindcss",
+        "path": "package.json",
+        "line": 25,
+        "actions": [
+          {
+            "type": "move-to-prod",
+            "auto_fixable": false,
+            "description": "Move to dependencies (production code imports this at runtime)",
+            "note": "A production-only install (`pnpm install --prod`) omits devDependencies, so this import would break at runtime"
+          },
+          {
+            "type": "add-to-config",
+            "auto_fixable": false,
+            "description": "Add \"tailwindcss\" to ignoreDependencies in fallow config",
+            "config_key": "ignoreDependencies",
+            "value": "tailwindcss",
+            "value_schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json#/properties/ignoreDependencies/items"
+          }
+        ]
+      }
+    ],
+    "circular_dependencies": [],
+    "re_export_cycles": [],
+    "boundary_violations": [],
+    "boundary_coverage_violations": [],
+    "boundary_call_violations": [],
+    "policy_violations": [],
+    "stale_suppressions": [],
+    "unused_catalog_entries": [],
+    "empty_catalog_groups": [],
+    "unresolved_catalog_references": [],
+    "unused_dependency_overrides": [],
+    "misconfigured_dependency_overrides": [],
+    "invalid_client_exports": [],
+    "mixed_client_server_barrels": [],
+    "misplaced_directives": [],
+    "route_collisions": [],
+    "dynamic_segment_name_conflicts": []
+  },
+  "dupes": {
+    "clone_groups": [
+      {
+        "instances": [
+          {
+            "file": "src/app/settings/page.tsx",
+            "start_line": 42,
+            "end_line": 60,
+            "start_col": 22,
+            "end_col": 73,
+            "fragment": "<div className=\"w-10 h-10 rounded-lg bg-[#EB6E4B]/10 flex items-center justify-center text-[#EB6E4B] flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>cloud_queue</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">OpenWeather</p>\n                        <p className=\"text-xs text-slate-500\">v3.0.1 Global Model</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className=\"w-2 h-2 rounded-full bg-emerald-500\"></div>\n                      <span className=\"text-xs font-semibold text-emerald-400\">Operational</span>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-3\">\n                      <div className=\"w-20 h-1.5 bg-surface-container-highest rounded-full overflow-hidden\">\n                        <div className=\"h-full bg-primary\" style={{ width"
+          },
+          {
+            "file": "src/app/settings/page.tsx",
+            "start_line": 80,
+            "end_line": 98,
+            "start_col": 22,
+            "end_col": 73,
+            "fragment": "<div className=\"w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>wb_sunny</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">AccuWeather</p>\n                        <p className=\"text-xs text-slate-500\">Pro-Level Precision</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className=\"w-2 h-2 rounded-full bg-emerald-500\"></div>\n                      <span className=\"text-xs font-semibold text-emerald-400\">Operational</span>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-3\">\n                      <div className=\"w-20 h-1.5 bg-surface-container-highest rounded-full overflow-hidden\">\n                        <div className=\"h-full bg-primary\" style={{ width"
+          }
+        ],
+        "token_count": 101,
+        "line_count": 19,
+        "fingerprint": "dup:c77b3abb6f87acd9-3",
+        "spread": 1,
+        "suggested_name": "className",
+        "actions": [
+          {
+            "type": "extract-shared",
+            "auto_fixable": false,
+            "description": "Extract duplicated code (19 lines, 2 instances) into a shared function"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the duplicated code",
+            "comment": "// fallow-ignore-next-line code-duplication"
+          }
+        ]
+      },
+      {
+        "instances": [
+          {
+            "file": "src/app/settings/page.tsx",
+            "start_line": 60,
+            "end_line": 80,
+            "start_col": 66,
+            "end_col": 36,
+            "fragment": "{ width: '94%' }}></div>\n                      </div>\n                      <span className=\"text-xs font-bold\">94%</span>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <span className=\"text-xs font-body text-slate-400\">142ms</span>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"relative inline-block w-10 h-5 transition duration-200 ease-in-out\">\n                      <input defaultChecked className=\"peer absolute w-10 h-5 opacity-0 cursor-pointer z-10\" type=\"checkbox\"/>\n                      <div className=\"w-10 h-5 bg-surface-container-highest rounded-full peer-checked:bg-primary transition-colors\"></div>\n                      <div className=\"absolute top-1 left-1 w-3 h-3 bg-on-surface-variant rounded-full transition-transform peer-checked:translate-x-5 peer-checked:bg-on-primary\"></div>\n                    </div>\n                  </td>\n                </tr>\n                {/* AccuWeather */}\n                <tr className=\"group hover:bg-surface-container-highest/20 transition-colors\">\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-4\">\n                      <div className"
+          },
+          {
+            "file": "src/app/settings/page.tsx",
+            "start_line": 98,
+            "end_line": 118,
+            "start_col": 66,
+            "end_col": 36,
+            "fragment": "{ width: '98%' }}></div>\n                      </div>\n                      <span className=\"text-xs font-bold\">98%</span>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <span className=\"text-xs font-body text-slate-400\">88ms</span>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"relative inline-block w-10 h-5 transition duration-200 ease-in-out\">\n                      <input defaultChecked className=\"peer absolute w-10 h-5 opacity-0 cursor-pointer z-10\" type=\"checkbox\"/>\n                      <div className=\"w-10 h-5 bg-surface-container-highest rounded-full peer-checked:bg-primary transition-colors\"></div>\n                      <div className=\"absolute top-1 left-1 w-3 h-3 bg-on-surface-variant rounded-full transition-transform peer-checked:translate-x-5 peer-checked:bg-on-primary\"></div>\n                    </div>\n                  </td>\n                </tr>\n                {/* Weatherbit */}\n                <tr className=\"group hover:bg-surface-container-highest/20 transition-colors\">\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-4\">\n                      <div className"
+          }
+        ],
+        "token_count": 99,
+        "line_count": 21,
+        "fingerprint": "dup:c77b3abb6f87acd9-2",
+        "spread": 1,
+        "suggested_name": "className",
+        "actions": [
+          {
+            "type": "extract-shared",
+            "auto_fixable": false,
+            "description": "Extract duplicated code (21 lines, 2 instances) into a shared function"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the duplicated code",
+            "comment": "// fallow-ignore-next-line code-duplication"
+          }
+        ]
+      },
+      {
+        "instances": [
+          {
+            "file": "src/app/settings/page.tsx",
+            "start_line": 42,
+            "end_line": 53,
+            "start_col": 22,
+            "end_col": 36,
+            "fragment": "<div className=\"w-10 h-10 rounded-lg bg-[#EB6E4B]/10 flex items-center justify-center text-[#EB6E4B] flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>cloud_queue</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">OpenWeather</p>\n                        <p className=\"text-xs text-slate-500\">v3.0.1 Global Model</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className"
+          },
+          {
+            "file": "src/app/settings/page.tsx",
+            "start_line": 80,
+            "end_line": 91,
+            "start_col": 22,
+            "end_col": 36,
+            "fragment": "<div className=\"w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>wb_sunny</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">AccuWeather</p>\n                        <p className=\"text-xs text-slate-500\">Pro-Level Precision</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className"
+          },
+          {
+            "file": "src/app/settings/page.tsx",
+            "start_line": 118,
+            "end_line": 129,
+            "start_col": 22,
+            "end_col": 36,
+            "fragment": "<div className=\"w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>bolt</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">Weatherbit</p>\n                        <p className=\"text-xs text-slate-500\">High Resolution Radar</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className"
+          }
+        ],
+        "token_count": 60,
+        "line_count": 12,
+        "fingerprint": "dup:c77b3abb6f87acd9-1",
+        "spread": 1,
+        "suggested_name": "className",
+        "actions": [
+          {
+            "type": "extract-shared",
+            "auto_fixable": false,
+            "description": "Extract duplicated code (12 lines, 3 instances) into a shared function"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the duplicated code",
+            "comment": "// fallow-ignore-next-line code-duplication"
+          }
+        ]
+      }
+    ],
+    "clone_families": [
+      {
+        "files": [
+          "src/app/settings/page.tsx"
+        ],
+        "groups": [
+          {
+            "instances": [
+              {
+                "file": "src/app/settings/page.tsx",
+                "start_line": 42,
+                "end_line": 60,
+                "start_col": 22,
+                "end_col": 73,
+                "fragment": "<div className=\"w-10 h-10 rounded-lg bg-[#EB6E4B]/10 flex items-center justify-center text-[#EB6E4B] flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>cloud_queue</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">OpenWeather</p>\n                        <p className=\"text-xs text-slate-500\">v3.0.1 Global Model</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className=\"w-2 h-2 rounded-full bg-emerald-500\"></div>\n                      <span className=\"text-xs font-semibold text-emerald-400\">Operational</span>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-3\">\n                      <div className=\"w-20 h-1.5 bg-surface-container-highest rounded-full overflow-hidden\">\n                        <div className=\"h-full bg-primary\" style={{ width"
+              },
+              {
+                "file": "src/app/settings/page.tsx",
+                "start_line": 80,
+                "end_line": 98,
+                "start_col": 22,
+                "end_col": 73,
+                "fragment": "<div className=\"w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>wb_sunny</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">AccuWeather</p>\n                        <p className=\"text-xs text-slate-500\">Pro-Level Precision</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className=\"w-2 h-2 rounded-full bg-emerald-500\"></div>\n                      <span className=\"text-xs font-semibold text-emerald-400\">Operational</span>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-3\">\n                      <div className=\"w-20 h-1.5 bg-surface-container-highest rounded-full overflow-hidden\">\n                        <div className=\"h-full bg-primary\" style={{ width"
+              }
+            ],
+            "token_count": 101,
+            "line_count": 19,
+            "fingerprint": "dup:c77b3abb6f87acd9-3",
+            "spread": 1,
+            "suggested_name": "className",
+            "actions": [
+              {
+                "type": "extract-shared",
+                "auto_fixable": false,
+                "description": "Extract duplicated code (19 lines, 2 instances) into a shared function"
+              },
+              {
+                "type": "suppress-line",
+                "auto_fixable": false,
+                "description": "Suppress with an inline comment above the duplicated code",
+                "comment": "// fallow-ignore-next-line code-duplication"
+              }
+            ]
+          },
+          {
+            "instances": [
+              {
+                "file": "src/app/settings/page.tsx",
+                "start_line": 60,
+                "end_line": 80,
+                "start_col": 66,
+                "end_col": 36,
+                "fragment": "{ width: '94%' }}></div>\n                      </div>\n                      <span className=\"text-xs font-bold\">94%</span>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <span className=\"text-xs font-body text-slate-400\">142ms</span>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"relative inline-block w-10 h-5 transition duration-200 ease-in-out\">\n                      <input defaultChecked className=\"peer absolute w-10 h-5 opacity-0 cursor-pointer z-10\" type=\"checkbox\"/>\n                      <div className=\"w-10 h-5 bg-surface-container-highest rounded-full peer-checked:bg-primary transition-colors\"></div>\n                      <div className=\"absolute top-1 left-1 w-3 h-3 bg-on-surface-variant rounded-full transition-transform peer-checked:translate-x-5 peer-checked:bg-on-primary\"></div>\n                    </div>\n                  </td>\n                </tr>\n                {/* AccuWeather */}\n                <tr className=\"group hover:bg-surface-container-highest/20 transition-colors\">\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-4\">\n                      <div className"
+              },
+              {
+                "file": "src/app/settings/page.tsx",
+                "start_line": 98,
+                "end_line": 118,
+                "start_col": 66,
+                "end_col": 36,
+                "fragment": "{ width: '98%' }}></div>\n                      </div>\n                      <span className=\"text-xs font-bold\">98%</span>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <span className=\"text-xs font-body text-slate-400\">88ms</span>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"relative inline-block w-10 h-5 transition duration-200 ease-in-out\">\n                      <input defaultChecked className=\"peer absolute w-10 h-5 opacity-0 cursor-pointer z-10\" type=\"checkbox\"/>\n                      <div className=\"w-10 h-5 bg-surface-container-highest rounded-full peer-checked:bg-primary transition-colors\"></div>\n                      <div className=\"absolute top-1 left-1 w-3 h-3 bg-on-surface-variant rounded-full transition-transform peer-checked:translate-x-5 peer-checked:bg-on-primary\"></div>\n                    </div>\n                  </td>\n                </tr>\n                {/* Weatherbit */}\n                <tr className=\"group hover:bg-surface-container-highest/20 transition-colors\">\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-4\">\n                      <div className"
+              }
+            ],
+            "token_count": 99,
+            "line_count": 21,
+            "fingerprint": "dup:c77b3abb6f87acd9-2",
+            "spread": 1,
+            "suggested_name": "className",
+            "actions": [
+              {
+                "type": "extract-shared",
+                "auto_fixable": false,
+                "description": "Extract duplicated code (21 lines, 2 instances) into a shared function"
+              },
+              {
+                "type": "suppress-line",
+                "auto_fixable": false,
+                "description": "Suppress with an inline comment above the duplicated code",
+                "comment": "// fallow-ignore-next-line code-duplication"
+              }
+            ]
+          },
+          {
+            "instances": [
+              {
+                "file": "src/app/settings/page.tsx",
+                "start_line": 42,
+                "end_line": 53,
+                "start_col": 22,
+                "end_col": 36,
+                "fragment": "<div className=\"w-10 h-10 rounded-lg bg-[#EB6E4B]/10 flex items-center justify-center text-[#EB6E4B] flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>cloud_queue</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">OpenWeather</p>\n                        <p className=\"text-xs text-slate-500\">v3.0.1 Global Model</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className"
+              },
+              {
+                "file": "src/app/settings/page.tsx",
+                "start_line": 80,
+                "end_line": 91,
+                "start_col": 22,
+                "end_col": 36,
+                "fragment": "<div className=\"w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>wb_sunny</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">AccuWeather</p>\n                        <p className=\"text-xs text-slate-500\">Pro-Level Precision</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className"
+              },
+              {
+                "file": "src/app/settings/page.tsx",
+                "start_line": 118,
+                "end_line": 129,
+                "start_col": 22,
+                "end_col": 36,
+                "fragment": "<div className=\"w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0\">\n                        <span className=\"material-symbols-outlined\" style={{ fontVariationSettings: \"'FILL' 1\" }}>bolt</span>\n                      </div>\n                      <div className=\"whitespace-nowrap\">\n                        <p className=\"font-bold text-on-surface\">Weatherbit</p>\n                        <p className=\"text-xs text-slate-500\">High Resolution Radar</p>\n                      </div>\n                    </div>\n                  </td>\n                  <td className=\"px-8 py-6\">\n                    <div className=\"flex items-center gap-2\">\n                      <div className"
+              }
+            ],
+            "token_count": 60,
+            "line_count": 12,
+            "fingerprint": "dup:c77b3abb6f87acd9-1",
+            "spread": 1,
+            "suggested_name": "className",
+            "actions": [
+              {
+                "type": "extract-shared",
+                "auto_fixable": false,
+                "description": "Extract duplicated code (12 lines, 3 instances) into a shared function"
+              },
+              {
+                "type": "suppress-line",
+                "auto_fixable": false,
+                "description": "Suppress with an inline comment above the duplicated code",
+                "comment": "// fallow-ignore-next-line code-duplication"
+              }
+            ]
+          }
+        ],
+        "total_duplicated_lines": 52,
+        "total_duplicated_tokens": 260,
+        "suggestions": [
+          {
+            "kind": "ExtractModule",
+            "description": "Extract 3 shared clone groups (52 lines) from page.tsx into src/app/settings",
+            "estimated_savings": 64
+          }
+        ],
+        "actions": [
+          {
+            "type": "extract-shared",
+            "auto_fixable": false,
+            "description": "Extract 3 duplicated code blocks (52 lines) into a shared module",
+            "note": "These clone groups share the same files, indicating a structural relationship; refactor together"
+          },
+          {
+            "type": "apply-suggestion",
+            "auto_fixable": false,
+            "description": "Extract 3 shared clone groups (52 lines) from page.tsx into src/app/settings"
+          },
+          {
+            "type": "suppress-line",
+            "auto_fixable": false,
+            "description": "Suppress with an inline comment above the duplicated code",
+            "comment": "// fallow-ignore-next-line code-duplication"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_files": 9,
+      "files_with_clones": 1,
+      "total_lines": 1087,
+      "duplicated_lines": 88,
+      "total_tokens": 5262,
+      "duplicated_tokens": 320,
+      "clone_groups": 3,
+      "clone_instances": 7,
+      "duplication_percentage": 8.09567617295308
+    }
+  },
+  "health": {
+    "findings": [],
+    "summary": {
+      "files_analyzed": 11,
+      "functions_analyzed": 12,
+      "functions_above_threshold": 0,
+      "max_cyclomatic_threshold": 20,
+      "max_cognitive_threshold": 15,
+      "max_crap_threshold": 30.0,
+      "max_unit_size_threshold": 60,
+      "files_scored": 7,
+      "average_maintainability": 98.5,
+      "coverage_model": "static_estimated",
+      "severity_critical_count": 0,
+      "severity_high_count": 0,
+      "severity_moderate_count": 0
+    },
+    "vital_signs": {
+      "dead_file_pct": 0.0,
+      "dead_export_pct": 0.0,
+      "avg_cyclomatic": 1.7,
+      "critical_complexity_pct": 0.0,
+      "p90_cyclomatic": 3,
+      "hotspot_count": 0,
+      "hotspot_top_pct_count": 0,
+      "maintainability_avg": 98.5,
+      "maintainability_low_pct": 0.0,
+      "unused_dep_count": 1,
+      "unused_deps_per_k_files": 90.9,
+      "circular_dep_count": 0,
+      "circular_deps_per_k_files": 0.0,
+      "counts": {
+        "total_files": 11,
+        "total_exports": 11,
+        "dead_files": 0,
+        "dead_exports": 0,
+        "total_lines": 1110,
+        "files_scored": 7,
+        "total_deps": 0
+      },
+      "unit_size_profile": {
+        "low_risk": 16.7,
+        "medium_risk": 41.7,
+        "high_risk": 0.0,
+        "very_high_risk": 41.7
+      },
+      "functions_over_60_loc_per_k": 416.7,
+      "unit_interfacing_profile": {
+        "low_risk": 100.0,
+        "medium_risk": 0.0,
+        "high_risk": 0.0,
+        "very_high_risk": 0.0
+      },
+      "p95_fan_in": 1,
+      "coupling_high_pct": 0.0,
+      "p95_render_fan_in": 1,
+      "render_fan_in_high_pct": 0.0,
+      "max_render_fan_in": 1,
+      "top_render_fan_in": [
+        {
+          "component": "Sidebar",
+          "path": "src/components/Sidebar.tsx",
+          "render_sites": 1,
+          "distinct_parents": 1
+        },
+        {
+          "component": "TopBar",
+          "path": "src/components/TopBar.tsx",
+          "render_sites": 1,
+          "distinct_parents": 1
+        }
+      ],
+      "total_loc": 1110
+    },
+    "file_scores": [
+      {
+        "path": "src/components/Sidebar.tsx",
+        "fan_in": 1,
+        "fan_out": 0,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.08,
+        "maintainability_index": 97.6,
+        "total_cyclomatic": 6,
+        "total_cognitive": 4,
+        "function_count": 3,
+        "lines": 72,
+        "crap_max": 12.0,
+        "crap_above_threshold": 0
+      },
+      {
+        "path": "src/app/page.tsx",
+        "fan_in": 0,
+        "fan_out": 0,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.03,
+        "maintainability_index": 99.1,
+        "total_cyclomatic": 6,
+        "total_cognitive": 3,
+        "function_count": 3,
+        "lines": 194,
+        "crap_max": 12.0,
+        "crap_above_threshold": 0
+      },
+      {
+        "path": "src/app/maps/page.tsx",
+        "fan_in": 0,
+        "fan_out": 0,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.02,
+        "maintainability_index": 99.4,
+        "total_cyclomatic": 4,
+        "total_cognitive": 2,
+        "function_count": 2,
+        "lines": 172,
+        "crap_max": 12.0,
+        "crap_above_threshold": 0
+      },
+      {
+        "path": "src/app/layout.tsx",
+        "fan_in": 0,
+        "fan_out": 3,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.02,
+        "maintainability_index": 93.9,
+        "total_cyclomatic": 1,
+        "total_cognitive": 0,
+        "function_count": 1,
+        "lines": 49,
+        "crap_max": 2.0,
+        "crap_above_threshold": 0
+      },
+      {
+        "path": "src/components/TopBar.tsx",
+        "fan_in": 1,
+        "fan_out": 0,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.04,
+        "maintainability_index": 99.4,
+        "total_cyclomatic": 1,
+        "total_cognitive": 0,
+        "function_count": 1,
+        "lines": 23,
+        "crap_max": 2.0,
+        "crap_above_threshold": 0
+      },
+      {
+        "path": "src/app/alerts/page.tsx",
+        "fan_in": 0,
+        "fan_out": 0,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.0,
+        "maintainability_index": 100.0,
+        "total_cyclomatic": 1,
+        "total_cognitive": 0,
+        "function_count": 1,
+        "lines": 213,
+        "crap_max": 2.0,
+        "crap_above_threshold": 0
+      },
+      {
+        "path": "src/app/settings/page.tsx",
+        "fan_in": 0,
+        "fan_out": 0,
+        "dead_code_ratio": 0.0,
+        "complexity_density": 0.0,
+        "maintainability_index": 100.0,
+        "total_cyclomatic": 1,
+        "total_cognitive": 0,
+        "function_count": 1,
+        "lines": 262,
+        "crap_max": 2.0,
+        "crap_above_threshold": 0
+      }
+    ],
+    "hotspot_summary": {
+      "since": "6 months",
+      "min_commits": 3,
+      "files_analyzed": 0,
+      "files_excluded": 7,
+      "shallow_clone": false
+    },
+    "large_functions": [
+      {
+        "path": "src/app/settings/page.tsx",
+        "name": "Settings",
+        "line": 1,
+        "line_count": 261
+      },
+      {
+        "path": "src/app/alerts/page.tsx",
+        "name": "Alerts",
+        "line": 1,
+        "line_count": 212
+      },
+      {
+        "path": "src/app/page.tsx",
+        "name": "Dashboard",
+        "line": 1,
+        "line_count": 193
+      },
+      {
+        "path": "src/app/maps/page.tsx",
+        "name": "Maps",
+        "line": 1,
+        "line_count": 171
+      },
+      {
+        "path": "src/components/Sidebar.tsx",
+        "name": "Sidebar",
+        "line": 5,
+        "line_count": 67
+      }
+    ],
+    "target_thresholds": {
+      "fan_in_p95": 5.0,
+      "fan_in_p75": 3.0,
+      "fan_out_p95": 8.0,
+      "fan_out_p90": 5
+    },
+    "framework_health": {
+      "detected_frameworks": [
+        "next",
+        "react"
+      ],
+      "detectors": [
+        {
+          "id": "invalid-client-export",
+          "framework": "next",
+          "status": "active"
+        },
+        {
+          "id": "mixed-client-server-barrel",
+          "framework": "next",
+          "status": "active"
+        },
+        {
+          "id": "misplaced-directive",
+          "framework": "next",
+          "status": "active"
+        },
+        {
+          "id": "route-collision",
+          "framework": "next",
+          "status": "active"
+        },
+        {
+          "id": "dynamic-segment-name-conflict",
+          "framework": "next",
+          "status": "active"
+        },
+        {
+          "id": "unused-server-action",
+          "framework": "next",
+          "status": "active"
+        },
+        {
+          "id": "unused-component-prop",
+          "framework": "react",
+          "status": "active"
+        },
+        {
+          "id": "prop-drilling",
+          "framework": "react",
+          "status": "disabled_by_config",
+          "reason": "disabled_by_config"
+        },
+        {
+          "id": "thin-wrapper",
+          "framework": "react",
+          "status": "disabled_by_config",
+          "reason": "disabled_by_config"
+        },
+        {
+          "id": "duplicate-prop-shape",
+          "framework": "react",
+          "status": "disabled_by_config",
+          "reason": "disabled_by_config"
+        }
+      ]
+    }
+  },
+  "next_steps": [
+    {
+      "id": "setup",
+      "command": "fallow schema",
+      "reason": "fallow has no config here; the manifest lists guided-setup commands (agent guide, commit gate) to offer the user"
+    },
+    {
+      "id": "trace-clone",
+      "command": "fallow dupes --trace dup:c77b3abb6f87acd9-1",
+      "reason": "see sibling locations and an extract-function suggestion"
+    },
+    {
+      "id": "audit-changed",
+      "command": "fallow audit",
+      "reason": "gate only the files your branch changed (auto-detects the base)"
+    }
+  ],
+  "_meta": {
+    "telemetry": {
+      "analysis_run_id": "run_ae8ceff3c4a50d88"
+    }
+  }
+}

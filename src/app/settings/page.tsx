@@ -1,3 +1,18 @@
+import DataStreamRow, { DATA_STREAMS } from "@/components/DataStreamRow";
+import Toggle from "@/components/Toggle";
+
+const FUSION_WEIGHTS = [
+  { label: "Historical Bias", value: 65 },
+  { label: "Live Sensor Feed", value: 25 },
+  { label: "ML Projection", value: 10 },
+];
+
+const SHORTCUTS = [
+  { icon: "vpn_key", title: "Credential Vault", subtitle: "Manage 4 secure API keys" },
+  { icon: "analytics", title: "Usage Quotas", subtitle: "82% of monthly limit used" },
+  { icon: "terminal", title: "Developer Logs", subtitle: "View raw JSON data stream" },
+];
+
 export default function Settings() {
   return (
     <div className="pt-24 pb-12 px-4 md:px-12 relative">
@@ -35,120 +50,9 @@ export default function Settings() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-outline-variant/5">
-                {/* OpenWeather */}
-                <tr className="group hover:bg-surface-container-highest/20 transition-colors">
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-[#EB6E4B]/10 flex items-center justify-center text-[#EB6E4B] flex-shrink-0">
-                        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>cloud_queue</span>
-                      </div>
-                      <div className="whitespace-nowrap">
-                        <p className="font-bold text-on-surface">OpenWeather</p>
-                        <p className="text-xs text-slate-500">v3.0.1 Global Model</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                      <span className="text-xs font-semibold text-emerald-400">Operational</span>
-                    </div>
-                  </td>
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-20 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div className="h-full bg-primary" style={{ width: '94%' }}></div>
-                      </div>
-                      <span className="text-xs font-bold">94%</span>
-                    </div>
-                  </td>
-                  <td className="px-8 py-6">
-                    <span className="text-xs font-body text-slate-400">142ms</span>
-                  </td>
-                  <td className="px-8 py-6">
-                    <div className="relative inline-block w-10 h-5 transition duration-200 ease-in-out">
-                      <input defaultChecked className="peer absolute w-10 h-5 opacity-0 cursor-pointer z-10" type="checkbox"/>
-                      <div className="w-10 h-5 bg-surface-container-highest rounded-full peer-checked:bg-primary transition-colors"></div>
-                      <div className="absolute top-1 left-1 w-3 h-3 bg-on-surface-variant rounded-full transition-transform peer-checked:translate-x-5 peer-checked:bg-on-primary"></div>
-                    </div>
-                  </td>
-                </tr>
-                {/* AccuWeather */}
-                <tr className="group hover:bg-surface-container-highest/20 transition-colors">
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary flex-shrink-0">
-                        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>wb_sunny</span>
-                      </div>
-                      <div className="whitespace-nowrap">
-                        <p className="font-bold text-on-surface">AccuWeather</p>
-                        <p className="text-xs text-slate-500">Pro-Level Precision</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                      <span className="text-xs font-semibold text-emerald-400">Operational</span>
-                    </div>
-                  </td>
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-20 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div className="h-full bg-primary" style={{ width: '98%' }}></div>
-                      </div>
-                      <span className="text-xs font-bold">98%</span>
-                    </div>
-                  </td>
-                  <td className="px-8 py-6">
-                    <span className="text-xs font-body text-slate-400">88ms</span>
-                  </td>
-                  <td className="px-8 py-6">
-                    <div className="relative inline-block w-10 h-5 transition duration-200 ease-in-out">
-                      <input defaultChecked className="peer absolute w-10 h-5 opacity-0 cursor-pointer z-10" type="checkbox"/>
-                      <div className="w-10 h-5 bg-surface-container-highest rounded-full peer-checked:bg-primary transition-colors"></div>
-                      <div className="absolute top-1 left-1 w-3 h-3 bg-on-surface-variant rounded-full transition-transform peer-checked:translate-x-5 peer-checked:bg-on-primary"></div>
-                    </div>
-                  </td>
-                </tr>
-                {/* Weatherbit */}
-                <tr className="group hover:bg-surface-container-highest/20 transition-colors">
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                        <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>bolt</span>
-                      </div>
-                      <div className="whitespace-nowrap">
-                        <p className="font-bold text-on-surface">Weatherbit</p>
-                        <p className="text-xs text-slate-500">High Resolution Radar</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-tertiary"></div>
-                      <span className="text-xs font-semibold text-tertiary">Degraded</span>
-                    </div>
-                  </td>
-                  <td className="px-8 py-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-20 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div className="h-full bg-tertiary" style={{ width: '72%' }}></div>
-                      </div>
-                      <span className="text-xs font-bold text-tertiary">72%</span>
-                    </div>
-                  </td>
-                  <td className="px-8 py-6">
-                    <span className="text-xs font-body text-slate-400">412ms</span>
-                  </td>
-                  <td className="px-8 py-6">
-                    <div className="relative inline-block w-10 h-5 transition duration-200 ease-in-out">
-                      <input className="peer absolute w-10 h-5 opacity-0 cursor-pointer z-10" type="checkbox"/>
-                      <div className="w-10 h-5 bg-surface-container-highest rounded-full peer-checked:bg-primary transition-colors"></div>
-                      <div className="absolute top-1 left-1 w-3 h-3 bg-on-surface-variant rounded-full transition-transform peer-checked:translate-x-5 peer-checked:bg-on-primary"></div>
-                    </div>
-                  </td>
-                </tr>
+                {DATA_STREAMS.map((stream) => (
+                  <DataStreamRow key={stream.name} stream={stream} />
+                ))}
               </tbody>
             </table>
           </div>
@@ -163,40 +67,20 @@ export default function Settings() {
                 <h3 className="font-headline text-lg font-bold">Fusion Logic</h3>
                 <p className="text-xs text-on-surface-variant">Weighted Average Engine</p>
               </div>
-              <div className="relative inline-block w-12 h-6 transition duration-200 ease-in-out">
-                <input defaultChecked className="peer absolute w-12 h-6 opacity-0 cursor-pointer z-10" type="checkbox"/>
-                <div className="w-12 h-6 bg-surface-container-highest rounded-full peer-checked:bg-gradient-to-r peer-checked:from-primary peer-checked:to-primary-container transition-all"></div>
-                <div className="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-6"></div>
-              </div>
+              <Toggle defaultChecked size="md" aria-label="Fusion logic" />
             </div>
             <div className="space-y-6">
-              <div className="space-y-3">
-                <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-slate-500">
-                  <span>Historical Bias</span>
-                  <span className="text-primary">65%</span>
+              {FUSION_WEIGHTS.map((weight) => (
+                <div key={weight.label} className="space-y-3">
+                  <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-slate-500">
+                    <span>{weight.label}</span>
+                    <span className="text-primary">{weight.value}%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-primary to-primary-container" style={{ width: `${weight.value}%` }}></div>
+                  </div>
                 </div>
-                <div className="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-primary to-primary-container" style={{ width: '65%' }}></div>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-slate-500">
-                  <span>Live Sensor Feed</span>
-                  <span className="text-primary">25%</span>
-                </div>
-                <div className="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-primary to-primary-container" style={{ width: '25%' }}></div>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-slate-500">
-                  <span>ML Projection</span>
-                  <span className="text-primary">10%</span>
-                </div>
-                <div className="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-primary to-primary-container" style={{ width: '10%' }}></div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -227,33 +111,20 @@ export default function Settings() {
 
         {/* Bottom Row: API Key Management */}
         <div className="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-surface-container-highest/40 p-6 rounded-xl flex items-center gap-4 group cursor-pointer hover:bg-surface-container-highest transition-all border border-outline-variant/10">
-            <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all flex-shrink-0">
-              <span className="material-symbols-outlined">vpn_key</span>
+          {SHORTCUTS.map((item) => (
+            <div
+              key={item.title}
+              className="bg-surface-container-highest/40 p-6 rounded-xl flex items-center gap-4 group cursor-pointer hover:bg-surface-container-highest transition-all border border-outline-variant/10"
+            >
+              <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all flex-shrink-0">
+                <span className="material-symbols-outlined">{item.icon}</span>
+              </div>
+              <div>
+                <h4 className="font-bold">{item.title}</h4>
+                <p className="text-xs text-on-surface-variant">{item.subtitle}</p>
+              </div>
             </div>
-            <div>
-              <h4 className="font-bold">Credential Vault</h4>
-              <p className="text-xs text-on-surface-variant">Manage 4 secure API keys</p>
-            </div>
-          </div>
-          <div className="bg-surface-container-highest/40 p-6 rounded-xl flex items-center gap-4 group cursor-pointer hover:bg-surface-container-highest transition-all border border-outline-variant/10">
-            <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all flex-shrink-0">
-              <span className="material-symbols-outlined">analytics</span>
-            </div>
-            <div>
-              <h4 className="font-bold">Usage Quotas</h4>
-              <p className="text-xs text-on-surface-variant">82% of monthly limit used</p>
-            </div>
-          </div>
-          <div className="bg-surface-container-highest/40 p-6 rounded-xl flex items-center gap-4 group cursor-pointer hover:bg-surface-container-highest transition-all border border-outline-variant/10">
-            <div className="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all flex-shrink-0">
-              <span className="material-symbols-outlined">terminal</span>
-            </div>
-            <div>
-              <h4 className="font-bold">Developer Logs</h4>
-              <p className="text-xs text-on-surface-variant">View raw JSON data stream</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

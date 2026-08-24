@@ -13,6 +13,23 @@ export type DataStream = {
   enabled: boolean;
 };
 
+const STATUS_STYLES = {
+  operational: {
+    dot: "bg-emerald-500",
+    label: "text-emerald-400",
+    text: "Operational",
+    bar: "bg-primary",
+    accuracy: "",
+  },
+  degraded: {
+    dot: "bg-tertiary",
+    label: "text-tertiary",
+    text: "Degraded",
+    bar: "bg-tertiary",
+    accuracy: "text-tertiary",
+  },
+} as const;
+
 export const DATA_STREAMS: DataStream[] = [
   {
     name: "OpenWeather",
@@ -47,7 +64,7 @@ export const DATA_STREAMS: DataStream[] = [
 ];
 
 export default function DataStreamRow({ stream }: { stream: DataStream }) {
-  const isOperational = stream.status === "operational";
+  const status = STATUS_STYLES[stream.status];
 
   return (
     <tr className="group hover:bg-surface-container-highest/20 transition-colors">
@@ -71,43 +88,23 @@ export default function DataStreamRow({ stream }: { stream: DataStream }) {
       </td>
       <td className="px-8 py-6">
         <div className="flex items-center gap-2">
-          <div
-            className={`w-2 h-2 rounded-full ${
-              isOperational ? "bg-emerald-500" : "bg-tertiary"
-            }`}
-          />
-          <span
-            className={`text-xs font-semibold ${
-              isOperational ? "text-emerald-400" : "text-tertiary"
-            }`}
-          >
-            {isOperational ? "Operational" : "Degraded"}
-          </span>
+          <div className={`w-2 h-2 rounded-full ${status.dot}`} />
+          <span className={`text-xs font-semibold ${status.label}`}>{status.text}</span>
         </div>
       </td>
       <td className="px-8 py-6">
         <div className="flex items-center gap-3">
           <div className="w-20 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-            <div
-              className={`h-full ${isOperational ? "bg-primary" : "bg-tertiary"}`}
-              style={{ width: `${stream.accuracy}%` }}
-            />
+            <div className={`h-full ${status.bar}`} style={{ width: `${stream.accuracy}%` }} />
           </div>
-          <span
-            className={`text-xs font-bold ${isOperational ? "" : "text-tertiary"}`}
-          >
-            {stream.accuracy}%
-          </span>
+          <span className={`text-xs font-bold ${status.accuracy}`}>{stream.accuracy}%</span>
         </div>
       </td>
       <td className="px-8 py-6">
         <span className="text-xs font-body text-slate-400">{stream.latency}</span>
       </td>
       <td className="px-8 py-6">
-        <Toggle
-          defaultChecked={stream.enabled}
-          aria-label={`${stream.name} power`}
-        />
+        <Toggle defaultChecked={stream.enabled} aria-label={`${stream.name} power`} />
       </td>
     </tr>
   );

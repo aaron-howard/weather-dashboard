@@ -1,0 +1,21 @@
+---
+description: Next.js App Router pages, layout, and routing conventions
+globs: src/app/**/*.tsx
+alwaysApply: false
+---
+
+# App Router
+
+- Routes are `src/app/<segment>/page.tsx` with a default-exported page component
+- Root metadata and chrome live only in `src/app/layout.tsx` — do not nest extra sidebars or top bars in pages
+- Pages are Server Components. Do not add `"use client"` to a page just to use `className` or map static arrays
+- Use `next/link` and `next/navigation` (`usePathname`). Never `next/router` or `pages/`
+- Images in the MVP are static `<img>` URLs; prefer `next/image` only when adding first-party assets or optimizing new local files
+- `src/app/globals.css` is the only global stylesheet: Tailwind layers plus `.material-symbols-outlined`, `.glass-card`, and `.hide-scrollbar`
+
+## Page templates
+
+Match the existing page instead of inventing a new shell:
+
+- Dashboard, Alerts, Settings: padded document under the TopBar (`pt-24`, 12-column bento grids)
+- Maps: full-viewport overlay (`relative mt-16 h-[calc(100vh-64px)]`) with absolutely positioned glass controls

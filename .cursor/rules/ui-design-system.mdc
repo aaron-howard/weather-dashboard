@@ -1,0 +1,47 @@
+---
+description: Visual system — Tailwind tokens, glass cards, Material Symbols, typography, layout offsets
+globs: src/**/*.tsx, src/**/*.css, tailwind.config.ts
+alwaysApply: false
+---
+
+# UI design system
+
+Canonical tokens: `@tailwind.config.ts`. Shared utilities: `@src/app/globals.css`. Shell spacing: `@src/app/layout.tsx`.
+
+## Color and type
+
+- Prefer semantic Tailwind colors from the theme (`primary`, `on-surface`, `on-surface-variant`, `surface-container-*`, `outline-variant`, `error`, `tertiary`) over raw hex
+- Brand cyan `#00D2FF` is used for active nav and a few map/search accents; do not replace the theme `primary` (`#37bcf7`) with it globally
+- Headings: `font-headline` (Manrope), usually `font-bold` / `font-extrabold` / `font-black` with `tracking-tight`
+- Body: `font-body`. Micro labels: `font-label`, often `text-[10px]` or `text-xs` plus `uppercase tracking-widest`
+
+## Surfaces
+
+- Frosted panels: `glass-card` plus large radii (`rounded-xl`, `rounded-2xl`, `rounded-3xl`) and a light `border-outline-variant/10` or `/20`
+- Decorative glows: large blurred `bg-primary/20` (or tertiary) orbs, not extra CSS files
+- Horizontal scrollers: `hide-scrollbar` (dashboard) or `no-scrollbar` if already used on that page — do not invent a third utility
+- Progress/meter bars: `h-1.5` track on `bg-surface-container-highest` or `bg-surface-container-low`, fill with `bg-primary` or `from-primary to-primary-container`
+
+## Icons
+
+```tsx
+<span className="material-symbols-outlined" data-icon="cloud">cloud</span>
+```
+
+- Filled (active weather, play, selected nav): `style={{ fontVariationSettings: "'FILL' 1" }}`
+- Do not add lucide, heroicons, or SVG icon packs
+
+## Layout offsets
+
+The chrome is fixed. Content must clear it:
+
+- Standard pages: `pt-24 px-4 md:px-8` (TopBar is `h-16`)
+- Full-bleed maps: `mt-16 h-[calc(100vh-64px)]` overlay UI, not the padded page template
+- Main already has `md:ml-[280px]` and `pb-20 md:pb-0` for the mobile bottom nav — do not duplicate the sidebar offset inside pages
+
+## Motion and controls
+
+- Hover: modest `transition-colors` / `hover:scale-105` / `hover:translate-x-1` — no new animation libraries
+- Primary actions: `bg-primary text-on-primary` (or brand cyan on maps search)
+- Destructive / immediate alerts: `error` tokens and a `border-l-4 border-error`
+- Warning / expected: `tertiary` tokens

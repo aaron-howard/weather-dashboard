@@ -1,0 +1,28 @@
+---
+description: Shared React component conventions for the weather dashboard
+globs: src/components/**/*.tsx
+alwaysApply: false
+---
+
+# Components
+
+Canonical examples: `@src/components/Toggle.tsx`, `@src/components/DataStreamRow.tsx`, `@src/components/Sidebar.tsx`.
+
+## Structure
+
+- Default-export the component function (`export default function Toggle`)
+- Export shared types and static data from the same file when they are only used with that UI (`DataStream`, `DATA_STREAMS`)
+- Keep `"use client"` off unless the file uses hooks or browser-only APIs. Sidebar needs it for `usePathname`; Toggle and TopBar do not
+- Import siblings with `@/components/...`, not relative `../`
+
+## Reuse before adding files
+
+- On/off switches: `@src/components/Toggle.tsx` — required `aria-label`, optional `size` (`sm` | `md`) and `defaultChecked`. Preserve the peer-focus-visible ring on the track
+- Weather/nav icons: Material Symbols in a `<span>`, not a new icon component unless several call sites need the same wrapper
+- Navigation: add entries to the `links` array in Sidebar (desktop aside + mobile bottom bar share it)
+
+## Props and a11y
+
+- Prefer a small typed props alias at the top of the file (`ToggleProps`) over inline object types when there is more than one prop
+- Interactive controls need an accessible name (`aria-label` or visible text)
+- Do not convert presentational MVP widgets into fully controlled forms unless the task asks for state

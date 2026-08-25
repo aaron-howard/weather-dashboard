@@ -1,0 +1,29 @@
+---
+description: Atmospheric Precision weather dashboard — stack, layout, and repo-wide constraints
+alwaysApply: true
+---
+
+# Atmospheric Precision
+
+Next.js 14 App Router weather dashboard (`weather-mvp`). Product copy uses **Precision** / **The Ethereal Observer**. Source lives under `src/`. Import with the `@/` alias (`@/components/Sidebar`).
+
+## Stack
+
+- TypeScript (strict), React 18, Tailwind CSS 3
+- Dark theme only: root layout sets `<html lang="en" className="dark">`
+- Fonts: Inter (`font-body`, `font-label`) and Manrope (`font-headline`) via `next/font/google`
+- Icons: Material Symbols Outlined (loaded in `src/app/layout.tsx`)
+
+## Architecture
+
+- Shell is `src/app/layout.tsx`: desktop Sidebar (280px) + TopBar; pages render as `{children}`
+- Routes: `/` dashboard, `/maps`, `/alerts`, `/settings`. Keep `src/components/Sidebar.tsx` nav in sync with any new route
+- Server Components by default. Add `"use client"` only when hooks or browser APIs are required (today: Sidebar)
+- This MVP uses static/hardcoded weather data. Do not invent a backend, weather API client, or auth unless asked
+
+## Do not
+
+- Add a `pages/` directory, Pages Router APIs, or `next/router`
+- Introduce another UI kit (shadcn, MUI, etc.) or CSS framework
+- Edit `.next/`, generated files, or `package-lock.json` unless the task requires a dependency change
+- Switch the app to light mode

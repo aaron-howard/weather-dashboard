@@ -1,0 +1,13 @@
+---
+description: Adding a new dashboard route, page, or Sidebar navigation item
+alwaysApply: false
+---
+
+# Adding a page
+
+1. Create `src/app/<route>/page.tsx` as a Server Component with a default export
+2. Add `{ name, href, icon }` to the `links` array in `@src/components/Sidebar.tsx` so desktop and mobile nav stay in sync. `icon` must be a Material Symbols name
+3. Use exact `pathname === href` matching (no prefix matching) unless the new route has nested segments that should share an active state
+4. Pick a template: padded `pt-24` page (dashboard/alerts/settings) or full-bleed overlay (maps)
+5. Do not wrap the page in another Sidebar/TopBar — `src/app/layout.tsx` already provides both
+6. Leave weather values hardcoded unless the task explicitly adds a data source
